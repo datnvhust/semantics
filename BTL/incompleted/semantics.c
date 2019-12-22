@@ -61,18 +61,23 @@ Object* checkDeclaredIdent(char* name) {
 
 Object* checkDeclaredConstant(char* name) {
   // TODO
-  Object *obj = NULL;
+  // Object *obj = NULL;
 
-  do {
-      obj = lookupObject(name);
-      if (obj != NULL)
-        if (obj->kind != OBJ_CONSTANT)
-          error(ERR_UNDECLARED_CONSTANT, currentToken->lineNo, currentToken->colNo);
-        else
-          break;
-  } while (obj != NULL);
+  // do {
+  //     obj = lookupObject(name);
+  //     if (obj != NULL)
+  //       if (obj->kind != OBJ_CONSTANT)
+  //         error(ERR_UNDECLARED_CONSTANT, currentToken->lineNo, currentToken->colNo);
+  //       else
+  //         break;
+  // } while (obj != NULL);
 
-  if (obj == NULL)
+  // if (obj == NULL)
+  //     error(ERR_UNDECLARED_CONSTANT, currentToken->lineNo, currentToken->colNo);
+
+  // return obj;
+  Object * obj = lookupObject(name);
+  if (obj == NULL || obj->kind != OBJ_CONSTANT)
       error(ERR_UNDECLARED_CONSTANT, currentToken->lineNo, currentToken->colNo);
 
   return obj;
@@ -80,18 +85,23 @@ Object* checkDeclaredConstant(char* name) {
 
 Object* checkDeclaredType(char* name) {
   // TODO
-  Object *obj = NULL;
+  // Object *obj = NULL;
 
-  do {
-      obj = lookupObject(name);
-      if (obj != NULL)
-        if (obj->kind != OBJ_TYPE)
-          error(ERR_UNDECLARED_TYPE, currentToken->lineNo, currentToken->colNo);
-        else
-          break;
-  } while (obj != NULL);
+  // do {
+  //     obj = lookupObject(name);
+  //     if (obj != NULL)
+  //       if (obj->kind != OBJ_TYPE)
+  //         error(ERR_UNDECLARED_TYPE, currentToken->lineNo, currentToken->colNo);
+  //       else
+  //         break;
+  // } while (obj != NULL);
 
-  if (obj == NULL)
+  // if (obj == NULL)
+  //     error(ERR_UNDECLARED_TYPE, currentToken->lineNo, currentToken->colNo);
+
+  // return obj;
+  Object * obj = lookupObject(name);
+  if (obj == NULL || obj->kind != OBJ_TYPE)
       error(ERR_UNDECLARED_TYPE, currentToken->lineNo, currentToken->colNo);
 
   return obj;
@@ -99,18 +109,23 @@ Object* checkDeclaredType(char* name) {
 
 Object* checkDeclaredVariable(char* name) {
   // TODO
-  Object *obj = NULL;
+  // Object *obj = NULL;
 
-  do {
-      obj = lookupObject(name);
-      if (obj != NULL)
-        if (obj->kind != OBJ_VARIABLE)
-          error(ERR_UNDECLARED_VARIABLE, currentToken->lineNo, currentToken->colNo);
-        else
-          break;
-  } while (obj != NULL);
+  // do {
+  //     obj = lookupObject(name);
+  //     if (obj != NULL)
+  //       if (obj->kind != OBJ_VARIABLE)
+  //         error(ERR_UNDECLARED_VARIABLE, currentToken->lineNo, currentToken->colNo);
+  //       else
+  //         break;
+  // } while (obj != NULL);
 
-  if (obj == NULL)
+  // if (obj == NULL)
+  //     error(ERR_UNDECLARED_VARIABLE, currentToken->lineNo, currentToken->colNo);
+
+  // return obj;
+  Object * obj = lookupObject(name);
+  if (obj == NULL || obj->kind != OBJ_VARIABLE)
       error(ERR_UNDECLARED_VARIABLE, currentToken->lineNo, currentToken->colNo);
 
   return obj;
@@ -118,42 +133,47 @@ Object* checkDeclaredVariable(char* name) {
 
 Object* checkDeclaredFunction(char* name) {
   // TODO
-  Object *obj = NULL;
+  // Object *obj = NULL;
 
-  do {
-      obj = lookupObject(name);
-      if (obj != NULL)
-        if (obj->kind != OBJ_FUNCTION)
-          error(ERR_UNDECLARED_FUNCTION, currentToken->lineNo, currentToken->colNo);
-        else
-          break;
-  } while (obj != NULL);
+  // do {
+  //     obj = lookupObject(name);
+  //     if (obj != NULL)
+  //       if (obj->kind != OBJ_FUNCTION)
+  //         error(ERR_UNDECLARED_FUNCTION, currentToken->lineNo, currentToken->colNo);
+  //       else
+  //         break;
+  // } while (obj != NULL);
 
-  if (obj == NULL)
-          error(ERR_UNDECLARED_FUNCTION, currentToken->lineNo, currentToken->colNo);
+  // if (obj == NULL)
+  //         error(ERR_UNDECLARED_FUNCTION, currentToken->lineNo, currentToken->colNo);
+
+  // return obj;
+  Object * obj = lookupObject(name);
+  if (obj == NULL || obj->kind != OBJ_FUNCTION)
+      error(ERR_UNDECLARED_FUNCTION, currentToken->lineNo, currentToken->colNo);
 
   return obj;
 }
 
 Object* checkDeclaredProcedure(char* name) {
   // TODO
-  Object *obj = NULL;
+  // Object *obj = NULL;
 
-  do {
-      obj = lookupObject(name);
-      if (obj != NULL)
-          if (obj->kind != OBJ_PROCEDURE)
-              error(ERR_UNDECLARED_PROCEDURE, currentToken->lineNo, currentToken->colNo);
-          else
-              break;
-  } while (obj != NULL);
+  // do {
+  //     obj = lookupObject(name);
+  //     if (obj != NULL)
+  //         if (obj->kind != OBJ_PROCEDURE)
+  //             error(ERR_UNDECLARED_PROCEDURE, currentToken->lineNo, currentToken->colNo);
+  //         else
+  //             break;
+  // } while (obj != NULL);
 
-  if (obj == NULL)
-      error(ERR_UNDECLARED_PROCEDURE, currentToken->lineNo, currentToken->colNo);
-
-  // Object * obj = lookupObject(name);
-  // if (obj == NULL || obj->kind != OBJ_PROCEDURE)
+  // if (obj == NULL)
   //     error(ERR_UNDECLARED_PROCEDURE, currentToken->lineNo, currentToken->colNo);
+
+  Object * obj = lookupObject(name);
+  if (obj == NULL || obj->kind != OBJ_PROCEDURE)
+      error(ERR_UNDECLARED_PROCEDURE, currentToken->lineNo, currentToken->colNo);
 
   return obj;
 }
